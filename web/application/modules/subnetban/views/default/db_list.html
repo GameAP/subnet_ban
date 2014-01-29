@@ -1,0 +1,16 @@
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<a class="awesome" href="{site_url}subnetban/add_db">Добавить базу</a>
+<a class="awesome" href="{site_url}subnetban/add_ban">Добавить бан</a>
+<br /><br />
+<table width="100%" class="zebra">
+	<th><strong>{lang_name}</strong></th>
+	<th><strong>Хост</strong></th>
+	<th>&nbsp;</th>
+{sbdb_list}
+	<tr>
+		<td width="40%">{name}</td>
+		<td width="40%">{hostname}</td>
+		<td><a class="small awesome" href={site_url}subnetban/view_db/{sbdb_id}>{lang_select}</a></td>
+	</tr>
+{/sbdb_list}
+</table>

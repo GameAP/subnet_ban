@@ -1,0 +1,70 @@
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<a class="awesome" href="{site_url}subnetban/view_db/{sbdb_id}">« Вернуться</a>&nbsp;
+<br /><br />
+<form action="{site_url}subnetban/add_ban/{sbdb_id}" method="post" accept-charset="utf-8">
+	<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
+	
+	<table width="100%" class="zebra">
+		<tr>
+			<td>Диапазон IP:<br /><span class="description">[ Укажите диапазон IP, либо подсеть в формате CIDR в первом поле (второе оставьте пустым) ]</span></td>
+			<td><input type="text" name="startip" /> - <input type="text" name="endip" /></td>
+		</tr>
+		
+		<tr>
+			<td>Причина:</td>
+			<td><input type="text" name="reason" /></td>
+		</tr>
+
+	</table>
+	<p class="hr">Разрешенные клиенты</p>
+	<table width="50%" class="zebra">
+		<tr>
+			<td>Dproto (Неизвестный клиент): </td>
+			<td><input type="checkbox" value="accept" name="unknown" /></td>
+		</tr>
+		<tr>
+			<td>Лицензионный Steam: </td>
+			<td><input type="checkbox" value="accept" name="native_steam" checked="checked" /></td>
+		</tr>
+		<tr>
+			<td>SteamEmu: </td>
+			<td><input type="checkbox" value="accept" name="steamemu" /></td>
+		</tr>
+		<tr>
+			<td>RevEmu: </td>
+			<td><input type="checkbox" value="accept" name="rewemu" /></td>
+		</tr>
+		<tr>
+			<td>Old RevEmu: </td>
+			<td><input type="checkbox" value="accept" name="old_rewemu" /></td>
+		</tr>
+		<tr>
+			<td>HLTV: </td>
+			<td><input type="checkbox" value="accept" name="hltv" checked="checked" /></td>
+		</tr>
+		<tr>
+			<td>SteamClient2009: </td>
+			<td><input type="checkbox" value="accept" name="steamclient2009" /></td>
+		</tr>
+		<tr>
+			<td>AVSMP: </td>
+			<td><input type="checkbox" value="accept" name="avsmp" /></td>
+		</tr>
+		<tr>
+			<td>RevEmu 2013: </td>
+			<td><input type="checkbox" value="accept" name="rewemu2013" checked="checked" /></td>
+		</tr>
+	</table>
+	
+	<p class="hr">SubnetBans базы данных</p>
+	<table width="50%" class="zebra">
+		{sbdb_list}
+			<tr>
+				<td>{sbdb_name} ({sbdb_host}): </td>
+				<td>{checkbox_sbdb}</td>
+			</tr>
+		{/sbdb_list}
+	</table>
+	
+	<p align="center"><input class="button" type="submit" name="submit" value="{lang_add}" /></p>
+</form>

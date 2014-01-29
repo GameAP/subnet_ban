@@ -1,0 +1,22 @@
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<a class="awesome" href="{site_url}subnetban">« Вернуться</a>&nbsp;
+<a class="awesome" href="{site_url}subnetban/add_ban/{db_id}">Добавить бан</a>
+<a class="awesome" href="{site_url}subnetban/edit_db/{db_id}">Редактировать базу</a>
+<a class="red awesome" href="{site_url}subnetban/delete_db/{db_id}">Удалить базу</a>
+<br /><br />
+<table width="100%" class="zebra">
+	<th><strong>Диапазон</strong></th>
+	<th><strong>Разрешенные клиенты</strong></th>
+	<th><strong>Дата бана</strong></th>
+	<th><strong>Последнее подключение</strong></th>
+	<th>&nbsp;</th>
+{ban_list}
+	<tr>
+		<td width="20%">{startip} - {endip}</td>
+		<td width="20%">{allowedclients}</td>
+		<td width="20%">{datetimebanned}</td>
+		<td width="20%">{datetimelastblocked}</td>
+		<td><a class="small awesome" href={site_url}subnetban/edit_ban/{db_id}/{ban_id}>{lang_edit}</a>&nbsp;<a class="small red awesome" href={site_url}subnetban/delete_ban/{db_id}/{ban_id}>X</a></td>
+	</tr>
+{/ban_list}
+</table>

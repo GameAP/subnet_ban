@@ -1,0 +1,37 @@
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<a class="awesome" href="{site_url}subnetban">« Вернуться</a>&nbsp;
+<h2>Редактирование SB базы</h2>
+
+<form action="{site_url}subnetban/add_db" method="post" accept-charset="utf-8">
+	<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
+	<table class="zebra" width="100%">
+		<tr>
+			<td width="40%">{lang_name}:</td>
+			<td><input type="text" name="name" /></td>
+		</tr>
+		<tr>
+			<td width="40%">Хост:</td>
+			<td><input type="text" name="hostname" value="localhost" /></td>
+		</tr>
+		<tr>
+			<td width="40%">Имя пользователя:</td>
+			<td><input type="text" name="username" value="root" /></td>
+		</tr>
+		<tr>
+			<td width="40%">Пароль:</td>
+			<td><input type="text" name="password" /></td>
+		</tr>
+		<tr>
+			<td width="40%">Имя базы:</td>
+			<td><input type="text" name="database" /></td>
+		</tr>
+		<tr>
+			<td width="40%">Имя таблицы subnetbans:</td>
+			<td><input type="text" name="table_name" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input class="button" type="submit" name="server_add" value="{lang_add}" /></td>
+		</tr>
+	</table>
+</form>

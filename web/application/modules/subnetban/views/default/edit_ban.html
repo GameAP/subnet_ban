@@ -1,0 +1,56 @@
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<a class="awesome" href="{site_url}subnetban/view_db/{sbdb_id}">« Вернуться</a>&nbsp;
+<br /><br />
+<form action="{site_url}subnetban/edit_ban/{sbdb_id}/{ban_id}" method="post" accept-charset="utf-8">
+	<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
+	
+	<table width="100%" class="zebra">
+		<tr>
+			<td>Диапазон IP:<br /><span class="description">[ Укажите диапазон IP, либо подсеть в формате CIDR в первом поле (второе оставьте пустым) ]</span></td>
+			<td><input type="text" name="startip" value="{startip}"/> - <input type="text" name="endip" value="{endip}"/></td>
+		</tr>
+		
+		<tr>
+			<td>Причина:</td>
+			<td><input type="text" name="reason" value="{reason}"/></td>
+		</tr>
+
+	</table>
+	<p class="hr">Разрешенные клиенты</p>
+	<table width="50%" class="zebra">
+		<tr>
+			<td>Dproto (Неизвестный клиент): </td>
+			<td>{checkbox_unknown}</td>
+		</tr>
+		<tr>
+			<td>Лицензионный Steam: </td>
+			<td>{checkbox_native_steam}</td>
+		</tr>
+		<tr>
+			<td>SteamEmu: </td>
+			<td>{checkbox_steamemu}</td>
+		</tr>
+		<tr>
+			<td>RevEmu: </td>
+			<td>{checkbox_rewemu}</td>
+		</tr>
+		<tr>
+			<td>HLTV: </td>
+			<td>{checkbox_old_rewemu}</td>
+		</tr>
+		<tr>
+			<td>SteamClient2009: </td>
+			<td>{checkbox_steamclient2009}</td>
+		</tr>
+		<tr>
+			<td>AVSMP: </td>
+			<td>{checkbox_avsmp}</td>
+		</tr>
+		<tr>
+			<td>RevEmu 2013: </td>
+			<td>{checkbox_rewemu2013}</td>
+		</tr>
+	</table>
+	
+	<p align="center"><input class="button" type="submit" name="submit" value="{lang_save}" /></p>
+</form>
